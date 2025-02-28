@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative research experience as CFD simulation Lead</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+			-ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+		 /* Hide scrollbar for Chrome, Safari and Opera */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        header {
+			height: 90vh;
+			background: linear-gradient(to bottom,white, black);
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+            align-items: center;
+			text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+        }
+        
+        .content {
+            padding: 5px;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        
+        .content h2, .grid-item h2, header h1{
+            color: #ffbd39;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.4);
+        }
+        
+        footer {
+            text-align: center;
+			margin-bottom:20px;
+			padding-bottom: 10px;
+            width: 100%;
+        }
+        
+        .content a {
+            color: blue;
+            text-decoration: underline;
+        }
+		
+		.grid-container {
+		  display: grid;
+		  grid-template-columns: 1fr 2fr;
+		  gap: 20px;
+		  max-width: 1000px;
+		  margin: 20px auto;
+		}
+
+		.grid-item {
+		  justify-content: center;
+		  align-items: center;
+		  text-align: left;
+		  border: none;
+		  padding: none;
+		  background-color: transparent;
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+		
+		.content-item {
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+
+		.image-container img {
+		  width: 100%;       /* Take up the full width of the cell */
+		  height: 100%;      /* Take up the full height of the cell */
+		  object-fit: scale-down; /* Scale down to fit without cropping */
+		}
+		
+		.section {
+            background: transparent;
+        }
+        .section h2 {
+            padding-bottom: 5px;
+        }
+        .highlight {
+            background-color: #ffbd3980;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+		
+		.animate {
+			animation: slideUp 0.5s forwards; /* Apply animation */
+		}
+		
+		@keyframes slideUp {
+		  from {
+			transform: translateY(20px);
+			opacity: 0;
+		  }
+		  to {
+			transform: translateY(0);
+			opacity: 1;
+		  }
+		}
+		
+		@media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column layout */
+                text-align: center; /* Center text alignment for mobile */
+            }
+
+            .grid-item {
+                padding: 10px 0; /* Reduce padding for mobile */
+            }
+
+            header {
+                text-align: center; /* Center align header text for mobile */
+            }
+
+            header h1, header p {
+                text-align: center; /* Center align header content for mobile */
+            }
+		}
+  
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Simulation and Optimization of a Particulate Matter Collector Device</h1>
+        <p>As this research is still in progress, I'm unable to share any visuals related to the work.</p>
+    </header>
+	
+	<div class="grid-container">
+		<div class="grid-item">
+			<div class="section">
+				<h2>Summary</h2>
+			</div>
+		</div>
+		<div class="grid-item">
+			<div class="section">
+				<ul>
+					<li><strong>Role</strong>: CFD Simulation Lead</li>
+					<li><strong>Institution</strong>: School of Engineering &amp; Technology, BML Munjal University, India</li>
+					<li><strong>Research</strong>: Development of an advanced air filtration device, a project aimed at enhancing particle capture through impaction-based mechanisms and simulation-driven design improvements.</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="grid-item">
+			<div class="section">
+				<h2>Key Responsibilities and Contributions</h2>
+			</div>
+		</div>
+		<div class="grid-item">
+			<div class="section">
+				<ul>
+					<li>Developing and optimizing CFD models of the device using ANSYS Workbench.</li>
+					<li>Conducting CFD simulations to analyze the performance of the device under varying conditions. Validating the simulations against experimental data.</li>
+					<li>Collaborating with a multidisciplinary team to coordinate the development of the experimental apparatus and the simulation model in real-time.</li>
+					<li>Documenting and analysing the simulation data, summarizing the findings and insights from his work.</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="grid-item">
+			<div class="section">
+				<h2>Tools Used</h2>
+			</div>
+		</div>
+		<div class="grid-item">
+			<div class="section">
+				<ul>
+					<li>FreeCAD (CAD editing)</li>
+					<li>ANSYS Spaceclaim/ Mesh (pre-processing)</li>
+					<li>ANSYS Fluent (simulations)</li>
+					<li>MS Excel (data-analysis)</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="grid-item">
+			<div class="section">
+				<h2>Learnings</h2>
+			</div>
+		</div>
+		<div class="grid-item">
+			<div class="section">
+				<ul>
+					<li>Gained hands-on experience in multiphase and particle-laden flow simulations in Ansys Fluent, using either Lagrangian-approach (DPM) or Eulerian-approach (VoF/ Mixture/ Eulerian-Eulerian models) or both.</li>
+					<li>Implemented 6Dof solver with dynamic meshing to simulate wall motion dependent on fluid forces.</li>
+					<li>Refined my meshing skills.</li>
+					<li>Independently devised the simulation strategy and brain-stormed ideas to execute it with available resource.</li>
+					<li>Planning and sharing ideas with team members from different disciplines.</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="content">
+		<div class="content-item">
+			<h2>Testimonials</h2>
+			<p>Excerpts from team supervisors' letter of recommendation.</p>
+			<div class="project-gallery">
+				<img src="t1.png" class="gallery-image">
+				<img src="t2.png" class="gallery-image">
+			</div>
+		</div>
+    </div>
+
+    <footer>
+        <p>Click on 'X' or anywhere outside the page to close.</p>
+    </footer>
+	
+	
+
+	<script>
+		document.addEventListener('scroll', function() {
+		  var items = document.querySelectorAll('.grid-item, .content-item');
+		  var windowHeight = window.innerHeight;
+
+		  items.forEach(function(item) {
+			var rect = item.getBoundingClientRect();
+			if (rect.top < windowHeight-80) {
+			  item.classList.add('animate'); /* Add animate class when in view */
+			}
+		  });
+		});
+	</script>
+  
+</body>
+</html>
