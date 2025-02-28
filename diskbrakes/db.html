@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conjugate Heat Transfer (CHT) simulations of ventilated disk brakes</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+			-ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+		 /* Hide scrollbar for Chrome, Safari and Opera */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        header {
+			height: 90vh;
+			background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1)),url('cover.png') no-repeat center;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+            align-items: center;
+			text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+        }
+        
+        .content {
+            padding: 5px;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        
+        .content h2, .grid-item h2, header h1{
+            color: #ffbd39;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.5);
+        }
+        
+        footer {
+            text-align: center;
+			margin-bottom:20px;
+			padding-bottom: 10px;
+            width: 100%;
+        }
+        
+        .content a {
+            color: blue;
+            text-decoration: underline;
+        }
+		
+		.grid-container {
+		  display: grid;
+		  grid-template-columns: 2fr 1fr;
+		  gap: 20px;
+		  max-width: 1000px;
+		  margin: 20px auto;
+		}
+
+		.grid-item {
+		  justify-content: center;
+		  align-items: center;
+		  text-align: left;
+		  border: none;
+		  padding: none;
+		  background-color: transparent;
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+		
+		.content-item {
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+
+		.image-container img {
+		  width: 100%;       /* Take up the full width of the cell */
+		  height: 100%;      /* Take up the full height of the cell */
+		  object-fit: scale-down; /* Scale down to fit without cropping */
+		}
+		
+		.section {
+            background: transparent;
+        }
+        .section h2 {
+            padding-bottom: 5px;
+        }
+        .highlight {
+            background-color: #ffbd3980;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+		
+		.animate {
+			animation: slideUp 0.5s forwards; /* Apply animation */
+		}
+		
+		@keyframes slideUp {
+		  from {
+			transform: translateY(20px);
+			opacity: 0;
+		  }
+		  to {
+			transform: translateY(0);
+			opacity: 1;
+		  }
+		}
+		
+		@media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column layout */
+                text-align: center; /* Center text alignment for mobile */
+            }
+
+            .grid-item {
+                padding: 10px 0; /* Reduce padding for mobile */
+            }
+
+            header {
+                text-align: center; /* Center align header text for mobile */
+            }
+
+            header h1, header p {
+                text-align: center; /* Center align header content for mobile */
+            }
+		}
+  
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Comparative Thermal Analysis of Radial and Directional Disk Brakes under High-Speed Operation</h1>
+        <p>A Conjugate Heat Transfer Study</p>
+    </header>
+	
+	<div class="grid-container">
+    <!-- Column 2: Images -->
+		<div class="grid-item">
+			<div class="section">
+				<h2>The What and The Why</h2>
+				<p>The study investigates the thermal performance of two types of brake rotors: radial (straight vane) and directional (curved vane) disk brakes. The primary objective is to understand how these designs dissipate heat under high-speed conditions, which is crucial for preventing brake failure and ensuring vehicle safety. Ventilated brake discs are used due to their superior heat management capabilities, and the study aims to compare the heat dissipation efficiency of radial and directional rotor.</p>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="what.png" title="3D CAD models of the two disk types">
+		</div>
+
+		<div class="grid-item">
+			<div class="section">
+				<h2>The How</h2>
+				
+				<ul>
+					<li><span class="highlight">Approach</span>: Conjugate heat transfer, combining thermodynamics and fluid dynamics principles.</li>
+					<li><span class="highlight">Tools</span>: FreeCAD for modeling and Simscale for simulation.</li>
+					<li><span class="highlight">Setup</span>: Identically-dimensioned steel rotors, steady-state condition with Moving Reference Frame (MRF), simulating a car at 252 km/h (70m/s) with air entering the disks at the same speed.</li>
+					<li><span class="highlight">Focus</span>: Final temperature values and convective heat fluxes to compare thermal dissipation.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="how.png" title="Simulation domain and boundary conditions">
+		</div>
+		
+		<div class="grid-item">
+			<div class="section">
+				<h2>The Outcome</h2>
+				<p>The results show that directional disk brakes have superior thermal efficiency compared to radial disk brakes. The maximum, average, and minimum temperatures for directional disks are lower than those for radial disks, indicating better heat dissipation. Specifically, the directional disk rotor achieves a higher air flow-rate, functioning like a turbine to enhance convective heat transfer. The study concludes that directional rotors are more effective for high-speed operations due to their better airflow and heat dissipation capabilities, making them more suitable for motorsport or racing applications.</p>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="out.png" title="Temperature Contour and Airflow streamlines">
+		</div>
+	</div>
+	
+	<div class="content">
+		<div class="content-item">
+			<h2>Learnings</h2>
+			<p>Through this project, I mastered thermodynamics, fluid dynamics, and CAE tools like FreeCAD and Simscale. By comparing radial and directional brake rotors through conjugate heat transfer analysis, I enhanced my skills in data analysis and problem-solving. Despite limited computational resources, this demonstration project deepened my understanding of effective heat dissipation mechanisms and equipped me to tackle real-world engineering challenges with confidence.</p>
+        </div>
+		<div class="content-item">
+			<h2>Project Gallery</h2>
+			<div class="project-gallery">
+				<img src="temp-direc.png" title="Temperature distribution on directional disk brake" class="gallery-image">
+				<img src="temp-radial.png" title="Temperature distribution on radial disk brake" class="gallery-image">
+				<img src="veldir.png" title="Airflow velocity in directional disk brake" class="gallery-image">
+				<img src="velrad.png" title="Airflow velocity in radial disk brake" class="gallery-image">
+			</div>
+		</div>
+        <div class="content-item">
+			<h2>Access to full Project Report</h2>
+			<p><a href="report.pdf" target="_blank">Click to open the PDF.</a></p>
+		</div>
+    </div>
+
+    <footer>
+        <p>Click on 'X' or anywhere outside the page to close.</p>
+    </footer>
+	
+	
+
+	<script>
+		document.addEventListener('scroll', function() {
+		  var items = document.querySelectorAll('.grid-item, .content-item');
+		  var windowHeight = window.innerHeight;
+
+		  items.forEach(function(item) {
+			var rect = item.getBoundingClientRect();
+			if (rect.top < windowHeight-80) {
+			  item.classList.add('animate'); /* Add animate class when in view */
+			}
+		  });
+		});
+	</script>
+  
+</body>
+</html>
