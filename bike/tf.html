@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovative Trellis Frame Design for Café Racer: A Blend of Classic Aesthetics and Modern Engineering</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+			-ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+		 /* Hide scrollbar for Chrome, Safari and Opera */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        header {
+			height: 90vh;
+			background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1)),url('cover.GIF') no-repeat center;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+            align-items: center;
+			text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+        }
+        
+        .content {
+            padding: 5px;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        
+        .content h2, .grid-item h2, header h1{
+            color: #ffbd39;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.5);
+        }
+        
+        footer {
+            text-align: center;
+			margin-bottom:20px;
+			padding-bottom: 10px;
+            width: 100%;
+        }
+        
+        .content a {
+            color: blue;
+            text-decoration: underline;
+        }
+		
+		.grid-container {
+		  display: grid;
+		  grid-template-columns: 2fr 1fr;
+		  gap: 20px;
+		  max-width: 1000px;
+		  margin: 20px auto;
+		}
+
+		.grid-item {
+		  justify-content: center;
+		  align-items: center;
+		  text-align: left;
+		  border: none;
+		  padding: none;
+		  background-color: transparent;
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+		
+		.content-item {
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+
+		.image-container img {
+		  width: 100%;       /* Take up the full width of the cell */
+		  height: 100%;      /* Take up the full height of the cell */
+		  object-fit: scale-down; /* Scale down to fit without cropping */
+		}
+		
+		.section {
+            background: transparent;
+        }
+        .section h2 {
+            padding-bottom: 5px;
+        }
+        .highlight {
+            background-color: #ffbd3980;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+		
+		.animate {
+			animation: slideUp 0.5s forwards; /* Apply animation */
+		}
+		
+		@keyframes slideUp {
+		  from {
+			transform: translateY(20px);
+			opacity: 0;
+		  }
+		  to {
+			transform: translateY(0);
+			opacity: 1;
+		  }
+		}
+		
+		@media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column layout */
+                text-align: center; /* Center text alignment for mobile */
+            }
+
+            .grid-item {
+                padding: 10px 0; /* Reduce padding for mobile */
+            }
+
+            header {
+                text-align: center; /* Center align header text for mobile */
+            }
+
+            header h1, header p {
+                text-align: center; /* Center align header content for mobile */
+            }
+		}
+  
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Concept Trellis Frame for a Café Racer Motorcycle</h1>
+        <p>Design, Modelling, and Structural Analysis</p>
+    </header>
+	
+	<div class="grid-container">
+    <!-- Column 2: Images -->
+		<div class="grid-item">
+			<div class="section">
+				<h2>The What and The Why</h2>
+				<p>This project was undertaken to realise a fun concept in motorcycle design by combining the sleek, vintage aesthetic of café racers with the modern engineering advantages of a trellis frame.
+				Café racers are celebrated for their lightweight, high-performance builds and timeless charm. By integrating a trellis frame—a structure known for its strength, rigidity, and ability to enhance handling—the aim was to create a unique motorcycle frame that bridges classic style with contemporary performance.</p>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="what.png" title="3D CAD of the trellis frame made for a cafe racer motorbike">
+		</div>
+
+		<div class="grid-item">
+			<div class="section">
+				<h2>The How</h2>
+				
+				<ul>
+					<li><span class="highlight">Learning and Creating the Design</span>: I began by understanding motorbike frame design and café racer design theory. To meet both aesthetic and functional needs, the design featured a low, aggressive stance, clip-on handlebars, a sculpted fuel tank, and rear-set foot pegs for a forward-leaning riding position. The frame geometry was balanced to ensure agility and stability, with precise rake and trail settings for good handling.</li>
+					<li><span class="highlight">CAD Modelling</span>: Using FreeCAD, I created a 3D CAD model of the trellis frame, ensuring it met both aesthetic and functional requirements with a balanced wheelbase.</li>
+					<li><span class="highlight">Pre-Processing and Simulation Setup</span>: I prepared the mesh in Hyperworks/Hypermesh, using shell elements. For the drop test simulation, I used LS-PrePost to create the input file for LS-DYNA, simulating the frame being dropped from 2m. The non-linear static structural stiffness simulations were conducted in Optistruct, including lateral, longitudinal, and torsional stiffness tests. Loads and constraints were applied as per the stiffness test methods.</li>
+					<li><span class="highlight">Analysis</span>: The focus was on evaluating the frame’s performance under various conditions. For both the drop test and the stiffness test, stress contours and deformations in the frame were generated and analysed.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="how.png" title="Simulation setup for both tests with the model mesh, rigid-wall, load and constraint">
+		</div>
+		
+		<div class="grid-item">
+			<div class="section">
+				<h2>The Outcome</h2>
+				<p>The drop test identified areas where the frame bends and stresses. The frame stayed intact with no major damage. Structural simulations showed that lateral stiffness was lower than needed for high-speed cornering, and longitudinal stiffness was below the desired range, affecting stability during acceleration and braking. However, the torsional stiffness met the required range, though stress points indicated areas needing reinforcement.</p>
+				<p>In conclusion, the café racer frame combines modern trellis engineering with classic design but needs more work to improve its performance. Future improvements can include better bracing, adjusting pipe sizes, and refining the design based on stress analysis.</p>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="out.png" title="Stress-distribution and deformation in the trellis frame during drop test">
+		</div>
+	</div>
+	
+	<div class="content">
+		<div class="content-item">
+			<h2>Learnings</h2>
+			<p>This project has significantly expanded my knowledge and skills in several key areas of motorcycle design and structural analysis. I gained a comprehensive understanding of motorbike frame design and dynamics, focusing on the unique requirements of café racers. This included exploring café racer design theory, improving my CAD modelling skills by designing a trellis frame, and learning new software like Hyperworks/Hypermesh for pre-processing. I also enhanced my skills in LS-DYNA by conducting drop test simulations and using LS-PrePost alongside Hyperworks. Additionally, I learned about stiffness tests for motorbike frames and used Optistruct to conduct these tests. Overall, this project provided me with hands-on experience and a deeper understanding of the interplay between design aesthetics and engineering performance, equipping me with valuable skills to contribute effectively to future engineering projects.</p>
+        </div>
+		<div class="content-item">
+			<h2>Project Gallery</h2>
+			<div class="project-gallery">
+				<img src="la.png" class="gallery-image" title="Lateral stiffness test: (top) Deformation [scaled by 10x for visualization] in the frame; (bottom) Stress distribution">
+				<img src="to.png" class="gallery-image" title="Torsional stiffness test: (top) Deformation [scaled by 10x for visualization] in the frame; (bottom) Stress distribution">
+				<img src="lo.png" class="gallery-image" title="Longitudinal stiffness test: (top) Deformation [scaled by 20x for visualization] in the frame; (bottom) Stress distribution">
+				<img src="setup1.png" class="gallery-image" title="Top view of the simulation setup for stiffness test">
+				<img src="energy.png" class="gallery-image" title="Validating for conservation of energy during drop test">
+			</div>
+		</div>
+        <div class="content-item">
+			<h2>Access to full Project Report</h2>
+			<p><a href="report.pdf" target="_blank">Click to open the PDF.</a></p>
+		</div>
+    </div>
+
+    <footer>
+        <p>Click on 'X' or anywhere outside the page to close.</p>
+    </footer>
+	
+	
+
+	<script>
+		document.addEventListener('scroll', function() {
+		  var items = document.querySelectorAll('.grid-item, .content-item');
+		  var windowHeight = window.innerHeight;
+
+		  items.forEach(function(item) {
+			var rect = item.getBoundingClientRect();
+			if (rect.top < windowHeight-80) {
+			  item.classList.add('animate'); /* Add animate class when in view */
+			}
+		  });
+		});
+	</script>
+  
+</body>
+</html>
