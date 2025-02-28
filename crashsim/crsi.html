@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crash simulation of an SUV ladder chassis</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+			-ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+		 /* Hide scrollbar for Chrome, Safari and Opera */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        header {
+			height: 90vh;
+			background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1)),url('cover.GIF') no-repeat center;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+            align-items: center;
+			text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+        }
+        
+        .content {
+            padding: 5px;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        
+        .content h2, .grid-item h2, header h1{
+            color: #ffbd39;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.5);
+        }
+        
+        footer {
+            text-align: center;
+			margin-bottom:20px;
+			padding-bottom: 10px;
+            width: 100%;
+        }
+        
+        .content a {
+            color: blue;
+            text-decoration: underline;
+        }
+		
+		.grid-container {
+		  display: grid;
+		  grid-template-columns: 2fr 1fr;
+		  gap: 20px;
+		  max-width: 1000px;
+		  margin: 20px auto;
+		}
+
+		.grid-item {
+		  justify-content: center;
+		  align-items: center;
+		  text-align: left;
+		  border: none;
+		  padding: none;
+		  background-color: transparent;
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+		
+		.content-item {
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+
+		.image-container img {
+		  width: 100%;       /* Take up the full width of the cell */
+		  height: 100%;      /* Take up the full height of the cell */
+		  object-fit: scale-down; /* Scale down to fit without cropping */
+		}
+		
+		.section {
+            background: transparent;
+        }
+        .section h2 {
+            padding-bottom: 5px;
+        }
+        .highlight {
+            background-color: #ffbd3980;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+		
+		.animate {
+			animation: slideUp 0.5s forwards; /* Apply animation */
+		}
+		
+		@keyframes slideUp {
+		  from {
+			transform: translateY(20px);
+			opacity: 0;
+		  }
+		  to {
+			transform: translateY(0);
+			opacity: 1;
+		  }
+		}
+		
+		@media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column layout */
+                text-align: center; /* Center text alignment for mobile */
+            }
+
+            .grid-item {
+                padding: 10px 0; /* Reduce padding for mobile */
+            }
+
+            header {
+                text-align: center; /* Center align header text for mobile */
+            }
+
+            header h1, header p {
+                text-align: center; /* Center align header content for mobile */
+            }
+		}
+  
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Frontal Offset Crash Simulation of an SUV Ladder Chassis</h1>
+        <p>Exploring ladder chassis design and crash simulations</p>
+    </header>
+	
+	<div class="grid-container">
+    <!-- Column 2: Images -->
+		<div class="grid-item">
+			<div class="section">
+				<h2>The What and The Why</h2>
+				<p>I embarked on a personal project to enhance my understanding of ladder chassis design theory and learn how to model it. Additionally, I aimed to familiarize myself with LS-DYNA for crash simulations and apply these skills to the chassis model I created. The project was divided into two parts to comprehensively explore different aspects of crash simulations. In Part I, I simulated the chassis under frontal offset collisions at 64 kmph and 100 kmph using shell elements.
+				   In Part II, I compared the performance of shell and thick-shell (tshell) elements at 100 kmph. By simulating the chassis under these conditions,
+                   I aimed to gain practical experience in automotive safety engineering and structural analysis.</p>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="what.png" title="3D CAD of the ladder chassis">
+		</div>
+
+		<div class="grid-item">
+			<div class="section">
+				<h2>The How</h2>
+				
+				<ul>
+					<li><span class="highlight">CAD and Pre-Processing</span>: I developed a 3D CAD model of the SUV ladder chassis in FreeCAD. I prepared the mesh using LS-PrePost with shell elements and defined materials, constraints, welding, and contact definitions.</li>
+					<li><span class="highlight">Simulation Setup (Part I)</span>: I created LS-DYNA input files for frontal offset crash scenarios at 64 kmph and 100 kmph, specifying the rigid wall barrier and setting a termination time of 20ms.</li>
+					<li><span class="highlight">Simulation Setup (Part II)</span>: I focused on comparing shell and thick-shell (tshell) elements. A third FEM model with tshell elements was created, and simulations were conducted at 100 kmph with a termination time of 5ms.</li>
+					<li><span class="highlight">Analysis</span>:  Generated stress contours, system energy plots, and rigid wall normal force plots using LS-PrePost, identifying regions of stress concentration and deformation.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="how.png" title="Simulation setup with the model mesh and rigid-wall">
+		</div>
+		
+		<div class="grid-item">
+			<div class="section">
+				<h2>The Outcome</h2>
+				<ul>
+					<li><strong>Part I</strong>: I identified critical areas of deformation and stress concentration in the chassis at different impact speeds. The system's total energy was conserved, verifying the simulation setup.</li>
+					<li><strong>Part II</strong>: The tshell elements exhibited higher stress concentrations and required significantly more computational time compared to the shell elements. The tshell model also had a higher maximum stress.</li>
+				</ul>
+				<p>This project demonstrated the trade-offs between different modelling approaches and provided valuable insights into the crashworthiness of the SUV ladder chassis.</p>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="out.png" title="Stress-distribution and deformation in the chassis">
+		</div>
+	</div>
+	
+	<div class="content">
+		<div class="content-item">
+			<h2>Learnings</h2>
+			<p>This project was an incredible learning experience for me, especially given the constrained computational resources. I gained valuable insights into the complexities of crash simulations and the practical challenges involved in modelling high-speed collisions. Through this project, I learned about ladder chassis design and theory, modelled my own chassis using FreeCAD, and became proficient in setting up crash simulations on LS-Dyna. Completing the pre-processing using LS-PrePost was particularly rewarding. I also understood the importance of the Johnson-Cook material model for high-velocity impact analysis. Overall, this project significantly enhanced my practical knowledge in automotive safety engineering and structural analysis.</p>
+        </div>
+		<div class="content-item">
+			<h2>Project Gallery</h2>
+			<div class="project-gallery">
+				<img src="side.png" class="gallery-image" title="Side-view of the CAD model">
+				<img src="top.png" class="gallery-image" title="Top-view of the CAD model">
+				<img src="mesh.png" class="gallery-image" title="The mesh">
+				<img src="60v100.png" class="gallery-image" title="Comparison between impacts at 64 kmph and 100 kmph">
+				<img src="svts.png" class="gallery-image" title="Comparing results for shell and tshell elements">
+				<img src="energy.png" class="gallery-image" title="Validating for conservation of energy">
+			</div>
+		</div>
+        <div class="content-item">
+			<h2>Access to full Project Report</h2>
+			<p><a href="report.pdf" target="_blank">Click to open the PDF.</a></p>
+		</div>
+    </div>
+
+    <footer>
+        <p>Click on 'X' or anywhere outside the page to close.</p>
+    </footer>
+	
+	
+
+	<script>
+		document.addEventListener('scroll', function() {
+		  var items = document.querySelectorAll('.grid-item, .content-item');
+		  var windowHeight = window.innerHeight;
+
+		  items.forEach(function(item) {
+			var rect = item.getBoundingClientRect();
+			if (rect.top < windowHeight-80) {
+			  item.classList.add('animate'); /* Add animate class when in view */
+			}
+		  });
+		});
+	</script>
+  
+</body>
+</html>
