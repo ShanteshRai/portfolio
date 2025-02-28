@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAV Rotor Vibration Analysis Using CFD Simulations</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+			-ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+		 /* Hide scrollbar for Chrome, Safari and Opera */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        header {
+			height: 90vh;
+			background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1)),url('cover.GIF') no-repeat center;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+            align-items: center;
+			text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+        }
+        
+        .content {
+            padding: 5px;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        
+        .content h2, .grid-item h2, header h1{
+            color: #ffbd39;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.5);
+        }
+        
+        footer {
+            text-align: center;
+			margin-bottom:20px;
+			padding-bottom: 10px;
+            width: 100%;
+        }
+        
+        .content a {
+            color: blue;
+            text-decoration: underline;
+        }
+		
+		.grid-container {
+		  display: grid;
+		  grid-template-columns: 2fr 1fr;
+		  gap: 20px;
+		  max-width: 1000px;
+		  margin: 20px auto;
+		}
+
+		.grid-item {
+		  justify-content: center;
+		  align-items: center;
+		  text-align: left;
+		  border: none;
+		  padding: none;
+		  background-color: transparent;
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+		
+		.content-item {
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+
+		.image-container img {
+		  width: 100%;       /* Take up the full width of the cell */
+		  height: 100%;      /* Take up the full height of the cell */
+		  object-fit: scale-down; /* Scale down to fit without cropping */
+		}
+		
+		.section {
+            background: transparent;
+        }
+        .section h2 {
+            padding-bottom: 5px;
+        }
+        .highlight {
+            background-color: #ffbd3980;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+		
+		.animate {
+			animation: slideUp 0.5s forwards; /* Apply animation */
+		}
+		
+		@keyframes slideUp {
+		  from {
+			transform: translateY(20px);
+			opacity: 0;
+		  }
+		  to {
+			transform: translateY(0);
+			opacity: 1;
+		  }
+		}
+		
+		@media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column layout */
+                text-align: center; /* Center text alignment for mobile */
+            }
+
+            .grid-item {
+                padding: 10px 0; /* Reduce padding for mobile */
+            }
+
+            header {
+                text-align: center; /* Center align header text for mobile */
+            }
+
+            header h1, header p {
+                text-align: center; /* Center align header content for mobile */
+            }
+		}
+  
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Determination of Aerodynamic Vibration Excitation on UAV Rotors Using CFD Simulations</h1>
+    </header>
+	
+	<div class="grid-container">
+    <!-- Column 2: Images -->
+		<div class="grid-item">
+			<div class="section">
+				<h2>The What and The Why</h2>
+				<p>Unmanned Aerial Vehicles (UAVs) are increasingly used in various fields like photography, agriculture, and logistics, but they face significant challenges due to vibrations from their thrust units. These vibrations can interfere with onboard sensors and compromise the structural integrity of the UAV. This research project aims to identify and analyze the main sources of vibration excitation, specifically focusing on aerodynamic turbulences around the propellers. The objective is to develop and validate computational fluid dynamics (CFD) models to study these vibrations and propose solutions to mitigate them.</p>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="what.png" title="3D CAD model of the UAV propeller">
+		</div>
+
+		<div class="grid-item">
+			<div class="section">
+				<h2>The How</h2>
+				<ul>
+					<li><span class="highlight">Literature Study and Model Development</span>: Conducting a thorough review of existing methods for propeller flow simulation and vibration analysis, followed by the development and refinement of rotor flow models using ANSYS FLUENT, based on previous projects with minimal thrust and moment errors (1-5%) compared to experimental data.</li>
+					<li><span class="highlight">Domain Modelling and Meshing</span>: Creating a computational domain with distinct rotor and stator zones and generating polyhedral and hexahedral meshes with local refinements to capture crucial flow features. Mesh convergence studies were performed to ensure accuracy.</li>
+					<li><span class="highlight">Simulation and Solver Setup</span>: Setting up transient simulations using the sliding mesh technique to accurately capture unsteady aerodynamic effects, and validating the results with experimental data. Fast Fourier Transform (FFT) was applied on the thrust and moment curves to analyze vibration levels and identify critical frequencies.</li>
+					<li><span class="highlight">Focus</span>: Thrust and moment values generated the propeller.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="how.png" title="Simulation domain showing inlet, outlet and rotating zone">
+		</div>
+		
+		<div class="grid-item">
+			<div class="section">
+				<h2>The Outcomes</h2>
+				<ul>
+					<li><strong>Model Accuracy</strong>: The Transition-SST turbulence model provided the most accurate results for low Reynolds-number flows, surpassing the performance of the k-ω SST model.</li>
+					<li><strong>Mesh Convergence</strong>: The simulations showed that refining the mesh beyond a certain point resulted in negligible improvements in accuracy, indicating mesh insensitivity and convergence.</li>
+					<li><strong>Vibration Analysis</strong>: FFT analysis revealed the presence of significant vibration frequencies, with the primary amplitude appearing at 200 Hz, consistent with theoretical expectations.</li>
+					<li><strong>Design Insights</strong>: The identified vibration frequencies can guide the design of UAV components to avoid resonance, enhancing stability and sensor accuracy.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="out.png" title="Airflow velocity contour plot at the end of the simulation runtime.">
+		</div>
+	</div>
+	
+	<div class="content">
+		<div class="content-item">
+			<h2>Learnings</h2>
+			<p>Through this project, I gained valuable technical skills including proficiency in CFD simulation using ANSYS FLUENT, understanding turbulence models like Transition-SST, and performing FFT analysis for vibration studies using MATLAB. Additionally, I honed my project management, problem-solving, and critical thinking abilities by tackling complex challenges, optimizing models, and utilizing remote servers and HPC for simulation work. Enhanced collaborative and communication skills were developed, since covid lockdown forced to incorporate remote workflow.</p>
+        </div>
+		<div class="content-item">
+			<h2>Project Gallery</h2>
+			<div class="project-gallery">
+				<img src="mesh.png" title="Polyhedral mesh of the rotating zone with the propeller" class="gallery-image">
+				<img src="mesh1.png" title="Hexahedral mesh  of the stationary zone" class="gallery-image">
+				<img src="mesh2.png" title="Inflation layers on the propeller surface" class="gallery-image">
+				<img src="fft.svg" title="FFT curve for thrust values" class="gallery-image">
+				<img src="fftm.svg" title="FFT curve for moment values" class="gallery-image">
+			</div>
+		</div>
+        <div class="content-item">
+			<h2>Access to full Project Report</h2>
+			<p><a href="report.pdf" target="_blank">Click to open the PDF.</a></p>
+		</div>
+    </div>
+
+    <footer>
+        <p>Click on 'X' or anywhere outside the page to close.</p>
+    </footer>
+	
+	
+
+	<script>
+		document.addEventListener('scroll', function() {
+		  var items = document.querySelectorAll('.grid-item, .content-item');
+		  var windowHeight = window.innerHeight;
+
+		  items.forEach(function(item) {
+			var rect = item.getBoundingClientRect();
+			if (rect.top < windowHeight-80) {
+			  item.classList.add('animate'); /* Add animate class when in view */
+			}
+		  });
+		});
+	</script>
+  
+</body>
+</html>

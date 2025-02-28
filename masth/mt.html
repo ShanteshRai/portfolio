@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application of smart material for tripod stand</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+			-ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+		 /* Hide scrollbar for Chrome, Safari and Opera */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        header {
+			height: 90vh;
+			background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1)),url('cover.png') no-repeat center;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+            align-items: center;
+			text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+        }
+        
+        .content {
+            padding: 5px;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        
+        .content h2, .grid-item h2, header h1{
+            color: #ffbd39;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.5);
+        }
+        
+        footer {
+            text-align: center;
+			margin-bottom:20px;
+			padding-bottom: 10px;
+            width: 100%;
+        }
+        
+        .content a {
+            color: blue;
+            text-decoration: underline;
+        }
+		
+		.grid-container {
+		  display: grid;
+		  grid-template-columns: 2fr 1fr;
+		  gap: 20px;
+		  max-width: 1000px;
+		  margin: 20px auto;
+		}
+
+		.grid-item {
+		  justify-content: center;
+		  align-items: center;
+		  text-align: left;
+		  border: none;
+		  padding: none;
+		  background-color: transparent;
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+		
+		.content-item {
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+
+		.image-container img {
+		  width: 100%;       /* Take up the full width of the cell */
+		  height: 100%;      /* Take up the full height of the cell */
+		  object-fit: scale-down; /* Scale down to fit without cropping */
+		}
+		
+		.section {
+            background: transparent;
+        }
+        .section h2 {
+            padding-bottom: 5px;
+        }
+        .highlight {
+            background-color: #ffbd3980;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+		
+		.animate {
+			animation: slideUp 0.5s forwards; /* Apply animation */
+		}
+		
+		@keyframes slideUp {
+		  from {
+			transform: translateY(20px);
+			opacity: 0;
+		  }
+		  to {
+			transform: translateY(0);
+			opacity: 1;
+		  }
+		}
+		
+		@media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column layout */
+                text-align: center; /* Center text alignment for mobile */
+            }
+
+            .grid-item {
+                padding: 10px 0; /* Reduce padding for mobile */
+            }
+
+            header {
+                text-align: center; /* Center align header text for mobile */
+            }
+
+            header h1, header p {
+                text-align: center; /* Center align header content for mobile */
+            }
+		}
+  
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Design and Simulation of an Astro-Photography Tripod with Hydrogel Actuator</h1>
+    </header>
+	
+	<div class="grid-container">
+    <!-- Column 2: Images -->
+		<div class="grid-item">
+			<div class="section">
+				<h2>The What and The Why</h2>
+				<p>The objective of this thesis was to design and model a tripod mechanism for astrophotography, incorporating a hydrogel actuator to counteract the earth’s rotation and provide the necessary actuation for long-exposure photography. The inspiration stemmed from the shortcomings of conventional tripod mounts, which necessitate additional, often heavy and expensive mounts to maintain stability during long exposures. This study sought to leverage the unique properties of smart materials, particularly hydrogels, which can act as actuators by swelling and deswelling in response to external stimuli, thus offering a compact and integrated solution.</p>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="what.png" title="3D CAD model of the proposed tripod concept">
+		</div>
+
+		<div class="grid-item">
+			<div class="section">
+				<h2>The How</h2>
+				<p>The project involved several key steps and utilized various software tools:</p>
+				<ul>
+					<li><span class="highlight">Literature Review and Conceptual Design</span>: Conducted a comprehensive review of literature on hydrogels. Developed the initial conceptual design inspired by the Dobsonian telescope mount.</li>
+					<li><span class="highlight">Analytical Modelling</span>: Calculated dimensions and mechanical properties required for the hydrogel actuator using the Normalized Extended Temperature Expansion Model (NETEM).</li>
+					<li><span class="highlight">Finite Element Modelling and Simulation</span>: Developed a finite element model of the actuator on Abaqus. Simulated the actuator's behavior under applied loads and thermal stimuli.</li>
+					<li><span class="highlight">Computer-Aided Design (CAD)</span>: Designed the outer shell and the complete tripod mechanism assembly on SolidWorks.</li>
+					<li><span class="highlight">Prototyping</span>: Designed the prototype to accommodate the actuator and ensure efficient actuation. Tested the prototype design virtually to assess its feasibility and performance.</li>
+				</ul>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="how.png" title="Simulation model setup">
+		</div>
+		
+		<div class="grid-item">
+			<div class="section">
+				<h2>The Outcome</h2>
+				<p>The simulations showed that the designed hydrogel actuator could theoretically achieve the required actuation length under the specified conditions. However, several limitations were identified:</p>
+				<ul>
+					<li><strong>Response Time</strong>: The hydrogel's slow swelling kinetics resulted in impractically long response times for the intended application.</li>
+					<li><strong>Mechanical Properties</strong>: The need for large dimensions to achieve stability led to a design that was aesthetically and ergonomically poor.</li>
+					<li><strong>Actuation Rate</strong>: The swelling behavior of the hydrogel did not match the required strain rate for smooth and continuous actuation.</li>
+				</ul>
+				<p>Despite these challenges, the project served as a proof-of-concept, demonstrating the feasibility of using hydrogels for actuation in astrophotography tripods. It paved the way for further research to optimize hydrogel properties for practical applications.</p>
+
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="out.png" title="Isotropic deswelling of the actuator at the end of the simulation and the final tripod model">
+		</div>
+	</div>
+	
+	<div class="content">
+		<div class="content-item">
+			<h2>Learnings</h2>
+			<p>Through this project, I developed both technical and soft skills. Technically, I gained expertise in finite element analysis (FEA) using Abaqus, CAD design with SolidWorks, and a deep understanding of the properties and behavior of hydrogels, particularly PNiPAAm. Additionally, I honed my skills in analytical modeling and deriving complex equations for smart materials. On the softer side, I improved my problem-solving abilities, conducted extensive research, and effectively communicated complex scientific concepts to a diverse audience. I also enhanced my project management skills by balancing multiple tasks and deadlines while maintaining a high level of quality and rigor.</p>
+        </div>
+		<div class="content-item">
+			<h2>Project Gallery</h2>
+			<div class="project-gallery">
+				<img src="4.png" title="Topology plan of the meechanism" class="gallery-image">
+				<img src="3.png" title="Mechanical loads" class="gallery-image">
+				<img src="1.png" title="Actuation caused by the swelling/de-swelling of the hydrogel" class="gallery-image">
+				<img src="2.png" title="Constrained motion equation of the mechanism simulated on MATLAB" class="gallery-image">
+			</div>
+		</div>
+        <div class="content-item">
+			<h2>Access to full Project Report</h2>
+			<p><a href="report.pdf" target="_blank">Click to open the PDF.</a></p>
+		</div>
+    </div>
+
+    <footer>
+        <p>Click on 'X' or anywhere outside the page to close.</p>
+    </footer>
+	
+	
+
+	<script>
+		document.addEventListener('scroll', function() {
+		  var items = document.querySelectorAll('.grid-item, .content-item');
+		  var windowHeight = window.innerHeight;
+
+		  items.forEach(function(item) {
+			var rect = item.getBoundingClientRect();
+			if (rect.top < windowHeight-80) {
+			  item.classList.add('animate'); /* Add animate class when in view */
+			}
+		  });
+		});
+	</script>
+  
+</body>
+</html>
