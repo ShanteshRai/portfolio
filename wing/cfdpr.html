@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive CFD Analysis: Enhancing Aerodynamic Efficiency of the C130 Aircraft Wing with Winglets and Propeller Configurations</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+			-ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        header {
+			height: 90vh;
+			background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1)),url('result.GIF') no-repeat center;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+            align-items: center;
+        }
+        
+        header h1 {
+            margin: 0;
+        }
+        
+        .content {
+            padding: 5px;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        
+        .content h2, .grid-item h2, header h1{
+            color: #ffbd39;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.5);
+        }
+        
+        footer {
+            text-align: center;
+			margin-bottom:20px;
+			padding-bottom: 10px;
+            width: 100%;
+        }
+        
+        .content a {
+            color: blue;
+            text-decoration: underline;
+        }
+		
+		.grid-container {
+		  display: grid;
+		  grid-template-columns: 2fr 1fr;
+		  gap: 20px;
+		  max-width: 1000px;
+		  margin: 20px auto;
+		}
+
+		.grid-item {
+		  justify-content: center;
+		  align-items: center;
+		  text-align: left;
+		  border: none;
+		  padding: none;
+		  background-color: transparent;
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+		
+		.content-item {
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+
+		.image-container img {
+		  width: 100%;       /* Take up the full width of the cell */
+		  height: 100%;      /* Take up the full height of the cell */
+		  object-fit: scale-down; /* Scale down to fit without cropping */
+		}
+		
+		.section {
+            background: transparent;
+        }
+        .section h2 {
+            padding-bottom: 5px;
+        }
+        .highlight {
+            background-color: #ffbd3980;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+		
+		.animate {
+			animation: slideUp 0.5s forwards; /* Apply animation */
+		}
+		
+		@keyframes slideUp {
+		  from {
+			transform: translateY(20px);
+			opacity: 0;
+		  }
+		  to {
+			transform: translateY(0);
+			opacity: 1;
+		  }
+		}
+		
+		@media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column layout */
+                text-align: center; /* Center text alignment for mobile */
+            }
+
+            .grid-item {
+                padding: 10px 0; /* Reduce padding for mobile */
+            }
+
+            header {
+                text-align: center; /* Center align header text for mobile */
+            }
+
+            header h1, header p {
+                text-align: center; /* Center align header content for mobile */
+            }
+		}
+  
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A Comprehensive CFD Study of the C130 Aircraft Wing</h1>
+        <p>Winglet Effects and Propeller-Wing interaction Analysis</p>
+    </header>
+	
+	<div class="grid-container">
+    <!-- Column 2: Images -->
+		<div class="grid-item">
+			<div class="section">
+				<h2>The What and The Why</h2>
+				<p>This project is a comprehensive Computational Fluid Dynamics (CFD) study of the C130 aircraft wing, primarily focusing on the effects of winglets and propeller-wing interactions. The study comprises of following three sub-projects:</p>
+				<ol>
+					<li><strong>CFD Analysis of C130 Aircraft Wing: The Winglet Effect</strong> - Analyzes and compares the aerodynamic performance of a wing with and without a winglet.</li>
+					<li><strong>CFD Analysis of Wing-Propeller Interaction in C130 Aircraft</strong> - Examines the aerodynamic interaction between the wing and propeller slipstream for standard and wingtip-mounted propeller configurations.</li>
+					<li><strong>Enhancing Aerodynamic Efficiency of a Wing: Winglet v/s Wingtip-Propeller</strong> - Compares the aerodynamic efficiency of a wing with a winglet versus a wingtip-mounted propeller.</li>
+				</ol>
+				<p>The study aimed to optimize the aerodynamic efficiency of the C130 aircraft wing by reducing induced drag, and evaluating the potential benefits of wingtip-mounted propellers, especially in the context of modern and future aviation trends, including electric and hybrid-electric aircraft.</p>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="what.png" title="C130 aircraft (AI generated image)">
+		</div>
+
+		<div class="grid-item">
+			<div class="section">
+				<h2>The How</h2>
+				<ul>
+					<li><span class="highlight">Modelling</span>:
+						<ul>
+							<li><strong>Winglet Analysis</strong>: Created 3D CAD models of the wing with and without winglets using OpenVSP.</li>
+							<li><strong>Wing-Propeller Interaction</strong>: A propeller was modelled on OpenVSP and the wing models were reused. Assembled the wing and propeller blades for both standard and wingtip-mounted configurations on Simscale. Used AMI (Arbitrary Mesh Interface) rotating zones to simulate propeller motion.</li>
+						</ul>
+					</li>
+					<li><span class="highlight">Simulation Setup</span>: The setup and simulations were carried on the Simscale platform. Boundary conditions were set for cruise conditions, including an angle of attack of 3°, an inlet velocity of 66.9 m/s, a flight altitude of 1000 ft, and a propeller rotational velocity of 1020 RPM. Inflation layers were added on the wing and propeller blades to maintain y+&lt 3, and the number of volume cells varied slightly between configurations to ensure accurate results.
+					</li>
+					<li><span class="highlight">Execution</span>: For the Winglet Analysis, steady-state simulations were conducted. For the Wing-Propeller Interaction, transient simulations with a time-step size of 0.0001 seconds for 5000 steps were performed. 
+					</li>
+					<li><span class="highlight">Analysis</span>:
+						<ul>
+							<li><strong>Lift and Drag Forces</strong>: Averaged the lift and drag force values over the last 50 iterations or timesteps to ensure accuracy.</li>
+							<li><strong>Efficiency Calculations</strong>: Calculated the lift-to-drag ratio (L/D) to determine aerodynamic efficiency.</li>
+							<li><strong>Visualization</strong>: Used flow streamlines, pressure coefficient distributions, and velocity contours to visualize and compare the aerodynamic effects of different configurations.</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="how.png" title="Simulation domain and boundary conditions">
+		</div>
+		
+		<div class="grid-item">
+			<div class="section">
+				<h2>The Outcome</h2>
+				<ol>
+					<li><span><strong>Winglet Effect</strong></span>:
+						<ul>
+							<li>Winglets reduced induced drag and improved fuel efficiency but increased parasite drag and weight.</li>
+							<li>Lift increased by 5.85%, but drag also increased by 44.07%, reducing overall aerodynamic efficiency by 26.5%.</li>
+						</ul>
+					</li>
+					<li><span><strong>Wing-Propeller Interaction</strong></span>:
+						<ul>
+							<li>Wingtip-mounted propellers significantly reduced vortex formation and induced drag, improving aerodynamic efficiency by 46.84%.</li>
+							<li>Standard propeller configuration increased lift by 29.97% but also increased drag by 56.99%, reducing efficiency by 17.18%.</li>
+						</ul>
+					</li>
+					<li><span><strong>Winglet vs. Wingtip-Propeller</strong></span>:
+						<ul>
+							<li>Wingtip propeller configuration outperformed the winglet configuration, showing a 31.6% improvement in aerodynamic efficiency.</li>
+							<li>Wingtip-mounted propellers reduced wingtip vortex strength without the disadvantages of increased parasitic drag associated with winglets.</li>
+						</ul>
+					</li>
+				</ol>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="out.png" title="Pressure coefficient distribution and air streamlines">
+		</div>
+	</div>
+	
+	<div class="content">
+		<div class="content-item">
+			<h2>Learnings</h2>
+			<p>This project provided valuable learning experiences in CFD simulation, aerodynamic principles, and data analysis. By modelling and simulating various configurations of the C130 aircraft wing, I gained advanced skills in using Simscale for both steady-state and transient scenarios, and in creating 3D CAD models using OpenVSP. I deepened my understanding of aerodynamic concepts of aircraft wings, including wing and propeller geometry, winglets, and propeller-wing interactions. I also gained insights into wing design and its geometry, improving my ability to interpret simulation results and visualize aerodynamic effects. This project enhanced my problem-solving skills, and explored innovative design solutions like wingtip-mounted propellers.</p>
+        </div>
+		<div class="content-item">
+			<h2>Project Gallery</h2>
+			<div class="project-gallery">
+				<img src="wing.png" title="3D CAD model of the wing" class="gallery-image">
+				<img src="winglet.png" title="3D CAD model of the wing with a winglet " class="gallery-image">
+				<img src="prop.png" title="CAD model the propeller" class="gallery-image">
+				<img src="prop-pr.png" title="Pressure coefficient distribution over the propeller" class="gallery-image">
+				<img src="cp1.png" title="Comparing pressure coefficient distribution for different winglet designs" class="gallery-image">
+				<img src="streamline.png" title="Effect of wingtip propeller on vortex formation" class="gallery-image">
+				<img src="pr-tr.png" title="Comparing vortex formation at wingtips" class="gallery-image">
+				<img src="cp.png" title="Comparing pressure coefficient distribution for two propeller configurations" class="gallery-image">
+			</div>
+		</div>
+        <div class="content-item">
+			 <div class="content-item">
+			<h2>Access to full Project Report</h2>
+			<p><a href="report.pdf" target="_blank">Click to open the PDF.</a></p>
+		</div>
+		</div>
+    </div>
+
+    <footer>
+        <p>Click on 'X' or anywhere outside the page to close.</p>
+    </footer>
+	
+	
+
+	<script>
+		document.addEventListener('scroll', function() {
+		  var items = document.querySelectorAll('.grid-item, .content-item');
+		  var windowHeight = window.innerHeight;
+
+		  items.forEach(function(item) {
+			var rect = item.getBoundingClientRect();
+			if (rect.top < windowHeight-80) {
+			  item.classList.add('animate'); /* Add animate class when in view */
+			}
+		  });
+		});
+	</script>
+  
+</body>
+</html>
