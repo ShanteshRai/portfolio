@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFD Investigation of Gurney Flaps on NACA 2412 Airfoil at high angle of attack</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+			-ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        header {
+			height: 90vh;
+			background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1)),url('cover.png') no-repeat center;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+            align-items: center;
+        }
+        
+        header h1 {
+            margin: 0;
+        }
+        
+        .content {
+            padding: 5px;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        
+        .content h2, .grid-item h2, header h1{
+            color: #ffbd39;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.5);
+        }
+        
+        footer {
+            text-align: center;
+			margin-bottom:20px;
+			padding-bottom: 10px;
+            width: 100%;
+        }
+        
+        .content a {
+            color: blue;
+            text-decoration: underline;
+        }
+		
+		.grid-container {
+		  display: grid;
+		  grid-template-columns: 2fr 1fr;
+		  gap: 20px;
+		  max-width: 1000px;
+		  margin: 20px auto;
+		}
+
+		.grid-item {
+		  justify-content: center;
+		  align-items: center;
+		  text-align: left;
+		  border: none;
+		  padding: none;
+		  background-color: transparent;
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+		
+		.content-item {
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+
+		.image-container img {
+		  width: 100%;       /* Take up the full width of the cell */
+		  height: 100%;      /* Take up the full height of the cell */
+		  object-fit: scale-down; /* Scale down to fit without cropping */
+		}
+		
+		.section {
+            background: transparent;
+        }
+        .section h2 {
+            padding-bottom: 5px;
+        }
+        .highlight {
+            background-color: #ffbd3980;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+		
+		.animate {
+			animation: slideUp 0.5s forwards; /* Apply animation */
+		}
+		
+		@keyframes slideUp {
+		  from {
+			transform: translateY(20px);
+			opacity: 0;
+		  }
+		  to {
+			transform: translateY(0);
+			opacity: 1;
+		  }
+		}
+		
+		@media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column layout */
+                text-align: center; /* Center text alignment for mobile */
+            }
+
+            .grid-item {
+                padding: 10px 0; /* Reduce padding for mobile */
+            }
+
+            header {
+                text-align: center; /* Center align header text for mobile */
+            }
+
+            header h1, header p {
+                text-align: center; /* Center align header content for mobile */
+            }
+		}
+  
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Investigating the Effectiveness of Gurney Flaps for NACA 2412 Airfoil</h1>
+        <p>Aerodynamic Performance at High Angle of Attack</p>
+    </header>
+	
+	<div class="grid-container">
+    <!-- Column 2: Images -->
+		<div class="grid-item">
+			<div class="section">
+				<h2>The What and The Why</h2>
+				<p>This project explores the aerodynamic impact of Gurney flaps on the NACA 2412 airfoil, 
+				particularly at high angles of attack. The Gurney flap is a simple trailing-edge modification that enhances lift, 
+				making it valuable in various aerospace applications. Understanding its behavior helps optimize airfoil performance, 
+				aiding in aircraft and racing car design.</p>
+				
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="what.png" title="NACA 2412 airfoil with a Gurney flap">
+		</div>
+
+		<div class="grid-item">
+			<div class="section">
+				<h2>The How</h2>
+				<ul>
+					<li><span class="highlight">Modelling</span>: Using OpenVSP and FreeCAD, the airfoil models of NACA 2412 profile were generated, incorporating Gurney flaps of different heights (1%, 2%, and 4% of chord-length).
+					</li>
+					<li><span class="highlight">Simulation Setup</span>: The setup and simulations were carried in FreeCAD's CfdOF workbench, acting as GUI for cfmesh and Openfoam. Simulations were conducted for an angle of attack of 16°, an inlet velocity of 6 m/s keeping the Reynolds number at 400,000. Inflation layers were added on the airfoil surface to maintain y+&lt 1, and the number of volume cells varied slightly between configurations to ensure accurate results.
+					</li>
+					<li><span class="highlight">Execution</span>: Steady-state simulations were conducted using kOmegaSSTLM turbulence model till convergence was observed in force monitors as well as residuals. 
+					</li>
+					<li><span class="highlight">Analysis</span>:
+						<ul>
+							<li><strong>Lift and Drag Forces</strong>: Averaged the lift and drag force values over the last 200 iterations to ensure accuracy.</li>
+							<li><strong>Efficiency Calculations</strong>: Calculated the lift-to-drag ratio (L/D) to determine aerodynamic efficiency.</li>
+							<li><strong>Visualization</strong>: Used flow streamlines, pressure distributions, and velocity contours to visualize and compare aerodynamic effects due to different Gurney flap heights.</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="how.png" title="Meshed simulation domain and boundary conditions">
+		</div>
+		
+		<div class="grid-item">
+			<div class="section">
+				<h2>The Outcome</h2>
+				<ol>
+					<li>Gurney flaps significantly enhance lift due to wake vortex formation, shifting the Kutta condition enforcement point downstream.</li>
+					<li>Lift increases progressively with flap height, but so does drag, reducing the overall efficiency (L/D ratio).</li>
+					<li>The Gurney flap of 2% chord-length height offers a good balance, maximizing lift while limiting the drop in L/D ratio, making it an optimal choice for lift enhancement.</li>
+				</ol>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="out.png" title="Pressure contours">
+		</div>
+	</div>
+	
+	<div class="content">
+		<div class="content-item">
+			<h2>Learnings</h2>
+			<p>This project deepened my understanding of aerodynamic control surfaces, particularly their role in aerospace and automotive applications.
+			By analyzing the influence of Gurney flaps on airfoil performance, I explored how trailing-edge modifications impact lift and flow control, knowledge that 
+			directly applies to real-world aerodynamic optimization. Additionally, I gained hands-on experience with an open-source CFD pipeline using OpenFOAM, 
+			refining my ability to conduct simulations in a resource-efficient manner. Structuring this study as a parametric investigation reinforced my 
+			specialization in CFD, enabling me to translate theoretical concepts into applied analysis.</p>
+        </div>
+		<div class="content-item">
+			<h2>Project Gallery</h2>
+			<div class="project-gallery">
+				<img src="streamline.png" title="Flow streamlines" class="gallery-image">
+				<img src="vector.png" title="Velocity vectors" class="gallery-image">
+				<img src="vel.png" title="Velocity contours" class="gallery-image">
+				<img src="lift.png" title="Lift v/s flap height" class="gallery-image">
+				<img src="drag.png" title="Drag v/s flap height" class="gallery-image">
+				<img src="ld.png" title="Lift-to-drag ratio v/s flap height" class="gallery-image">
+				<img src="plot_lift.png" title="Chord-wise lift distribution plot" class="gallery-image">
+				<img src="plot_pressure.png" title="Chord-wise pressure distribution plot" class="gallery-image">
+			</div>
+		</div>
+        <div class="content-item">
+			 <div class="content-item">
+			<h2>Access to full Project Report</h2>
+			<p><a href="report.pdf" target="_blank">Click to open the PDF.</a></p>
+		</div>
+		</div>
+    </div>
+
+    <footer>
+        <p>Click on 'X' or anywhere outside the page to close.</p>
+    </footer>
+	
+	
+
+	<script>
+		document.addEventListener('scroll', function() {
+		  var items = document.querySelectorAll('.grid-item, .content-item');
+		  var windowHeight = window.innerHeight;
+
+		  items.forEach(function(item) {
+			var rect = item.getBoundingClientRect();
+			if (rect.top < windowHeight-80) {
+			  item.classList.add('animate'); /* Add animate class when in view */
+			}
+		  });
+		});
+	</script>
+  
+</body>
+</html>

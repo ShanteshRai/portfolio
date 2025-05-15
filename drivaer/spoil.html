@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spoiler Aerodynamics: Parametric CFD Analysis with the Drivaer Model</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+			-ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        header {
+			height: 90vh;
+			background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1)),url('cover.png') no-repeat center;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+            align-items: center;
+        }
+        
+        header h1 {
+            margin: 0;
+        }
+        
+        .content {
+            padding: 5px;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        
+        .content h2, .grid-item h2, header h1{
+            color: #ffbd39;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.5);
+        }
+        
+        footer {
+            text-align: center;
+			margin-bottom:20px;
+			padding-bottom: 10px;
+            width: 100%;
+        }
+        
+        .content a {
+            color: blue;
+            text-decoration: underline;
+        }
+		
+		.grid-container {
+		  display: grid;
+		  grid-template-columns: 2fr 1fr;
+		  gap: 20px;
+		  max-width: 1000px;
+		  margin: 20px auto;
+		}
+
+		.grid-item {
+		  justify-content: center;
+		  align-items: center;
+		  text-align: left;
+		  border: none;
+		  padding: none;
+		  background-color: transparent;
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+		
+		.content-item {
+		  opacity: 0; /* Initial state is hidden */
+		  transform: translateY(20px); /* Initial offset */
+		}
+
+		.image-container img {
+		  width: 100%;       /* Take up the full width of the cell */
+		  height: 100%;      /* Take up the full height of the cell */
+		  object-fit: scale-down; /* Scale down to fit without cropping */
+		}
+		
+		.section {
+            background: transparent;
+        }
+        .section h2 {
+            padding-bottom: 5px;
+        }
+        .highlight {
+            background-color: #ffbd3980;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+		
+		.animate {
+			animation: slideUp 0.5s forwards; /* Apply animation */
+		}
+		
+		@keyframes slideUp {
+		  from {
+			transform: translateY(20px);
+			opacity: 0;
+		  }
+		  to {
+			transform: translateY(0);
+			opacity: 1;
+		  }
+		}
+		
+		@media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column layout */
+                text-align: center; /* Center text alignment for mobile */
+            }
+
+            .grid-item {
+                padding: 10px 0; /* Reduce padding for mobile */
+            }
+
+            header {
+                text-align: center; /* Center align header text for mobile */
+            }
+
+            header h1, header p {
+                text-align: center; /* Center align header content for mobile */
+            }
+		}
+  
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Investigating Spoiler-Induced Flow Alterations Using the DrivAer Model</h1>
+        <p>Aerodynamic Behaviour Across Varying Spoiler Angles</p>
+    </header>
+	
+	<div class="grid-container">
+    <!-- Column 2: Images -->
+		<div class="grid-item">
+			<div class="section">
+				<h2>The What and The Why</h2>
+				<p>This study explores the aerodynamic effects of varying spoiler angles using the Drivaer model as a baseline.
+				Spoilers play a critical role in optimizing vehicle stability by modifying lift, drag, and wake behavior.
+				While commonly associated with high-performance applications, their influence extends to fuel efficiency, handling,
+				and stability in commercial automobiles. By conducting a parametric study of spoiler angles ranging from -15° to 30°,
+				the project aims to provide insight into aerodynamic trends that can inform real-world design decisions.</p>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="what.png" title="DrivAer geometry appended with spoiler">
+		</div>
+
+		<div class="grid-item">
+			<div class="section">
+				<h2>The How</h2>
+				<ul>
+					<li><span class="highlight">Modelling</span>: Using FreeCAD, a 2D surface from the Drivaer model's symmetry plane was extracted, and spoilers were appended at predefined angles (-15°, 0°, 5°, 12°, 20°, and 30°).</li>
+					<li><span class="highlight">Simulation Setup</span>: The pre-processing and simulations were carried in the FreeCAD's CfdOF workbench, employing cfmesh and OpenFOAM in the background. Boundary conditions were set as per the wind tunnel experiments, with an inlet velocity of 16 m/s corresponding to a Reynolds number of 4.87e+6. Inflation layers were added on the car surface to maintain y+&lt 1.5, and the mesh settings were kept same across all configurations for consistency.</li>
+					<li><span class="highlight">Execution</span>: Steady-state simulations were conducted using kOmegaSST turbulence modelling, until convergence was observed in force monitors and residuals. </li>
+					<li><span class="highlight">Analysis</span>:
+						<ul>
+							<li><strong>Lift and Drag Forces</strong>: Averaged the lift and drag force values over the last 200 iterations to ensure accuracy.</li>
+							<li><strong>Efficiency Calculations</strong>: Calculated the lift-to-drag ratio (L/D) to determine aerodynamic efficiency.</li>
+							<li><strong>Visualization</strong>: Used length-wise static pressure coefficient plots, vorticity and velocity contours to capture wake characteristics and pressure distribution, enabling a comparative analysis.</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="how.png" title="Meshed simulation domain and boundary conditions">
+		</div>
+		
+		<div class="grid-item">
+			<div class="section">
+				<h2>The Outcome</h2>
+				<ol>
+					<li>Downward spoilers (-15°) decreased drag by over 11%, improving fuel efficiency.</li>
+					<li>Neutral spoilers (0°) stabilized the wake and reduced turbulence with a minimal aerodynamic penalty.</li>
+					<li>Upward spoilers (5°–30°) increased downforce but introduced a diminishing efficiency return beyond 20°, where drag penalties outweighed the benefits.</li>
+					<li>The 20° spoiler emerged as the inflection point where aerodynamic gains peaked before drag effects took over.</li>
+					<li>Pressure distribution and wake structures validate spoiler effects, aligning with experimental trends.</li>
+				</ol>
+			</div>
+		</div>
+		<div class="grid-item image-container">
+			<img src="out.png" title="Vorticity contours">
+		</div>
+	</div>
+	
+	<div class="content">
+		<div class="content-item">
+			<h2>Learnings</h2>
+			<p>Through this study, I refined my expertise in CFD-driven aerodynamic analysis, particularly in control surfaces for vehicle applications. Investigating spoiler-induced flow alterations provided valuable insights into pressure distribution, wake manipulation, and downforce optimization. Additionally, working with OpenFOAM in a resource-constrained setup reinforced my proficiency in open-source CFD simulations. This applied parametric study strengthens my portfolio for roles requiring aerodynamics-driven design solutions in the automotive and aerospace sectors.</p>
+        </div>
+		<div class="content-item">
+			<h2>Project Gallery</h2>
+			<div class="project-gallery">
+				<img src="vel.png" title="Velocity contours" class="gallery-image">
+				<img src="pcp.png" title="Static pressure coefficient distribution  along the length" class="gallery-image">
+				<img src="vect.png" title="Velocity vectors" class="gallery-image">
+				<img src="ld.png" title="Downforce-to-drag ratio v/s spoiler angle" class="gallery-image">
+				<img src="lift.png" title="Downforce v/s spoiler angle" class="gallery-image">
+				<img src="drag.png" title="Drag v/s spoiler angle" class="gallery-image">
+			</div>
+		</div>
+        <div class="content-item">
+			 <div class="content-item">
+			<h2>Access to full Project Report</h2>
+			<p><a href="report.pdf" target="_blank">Click to open the PDF.</a></p>
+		</div>
+		</div>
+    </div>
+
+    <footer>
+        <p>Click on 'X' or anywhere outside the page to close.</p>
+    </footer>
+	
+	
+
+	<script>
+		document.addEventListener('scroll', function() {
+		  var items = document.querySelectorAll('.grid-item, .content-item');
+		  var windowHeight = window.innerHeight;
+
+		  items.forEach(function(item) {
+			var rect = item.getBoundingClientRect();
+			if (rect.top < windowHeight-80) {
+			  item.classList.add('animate'); /* Add animate class when in view */
+			}
+		  });
+		});
+	</script>
+  
+</body>
+</html>
